@@ -38,13 +38,13 @@ def restoreGame():
 	The game object is a list of characters'''
 
 	path = os.path.join(_getPath(), game_file)
-	with open(path, 'w') as gf:
+	with open(path) as gf:
 		gamestr = gf.read()
-		return list(gamestr)
+		return list(gamestr) #why a list?
 
 def test():
 	print('Path =', _getPath())
-	saveGame(list("XO  XO OX"))
+	saveGame(list("XO  XO OX")) #why does it save as a list?? it isn't saving anything
 	print(restoreGame())
 
 if __name__ == '__main__': test() 
@@ -53,5 +53,6 @@ if __name__ == '__main__': test()
 #When the Python interpreter reads a source file, it executes all of the code found in it. Before executing the #code, it will define a few special variables. For example, if the python interpreter is running that module (the #source file) as the main program, it sets the special __name__ variable to have a value "__main__". If this file is #being imported from another module, __name__ will be set to the module's name.
 
 #so why am i running automatic tests like this? do i comment out this line later?
+
 
 
